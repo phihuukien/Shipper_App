@@ -15,9 +15,9 @@ const OrderDeliveringCard = ({ id, phoneAddress, quantity, updateOrder, deliveri
   const dispatch = useDispatch<any>();
   const changeStatusOrder = (status: number, orderId: string) => {
     OrderService.gettingOrder(status, orderId).then((response: any) => {
-      if (response.status) {
+     
         dispatch(OrderAction.getOrderDeliverring());
-      }
+      
     })
 
   }
@@ -70,7 +70,7 @@ const OrderDeliveringCard = ({ id, phoneAddress, quantity, updateOrder, deliveri
                 activeOpacity={0.8}
                 onPress={() => changeStatusOrder(4, id)}>
                 <Text style={styles.changeStatus}>
-                  Next On Thy Way
+                  Next On The Way
                 </Text>
               </TouchableOpacity>
               :
@@ -127,7 +127,7 @@ const OrderDeliveringCard = ({ id, phoneAddress, quantity, updateOrder, deliveri
                 case 3:
                   return "Order processing"
                 case 4:
-                  return "On Thy Way"
+                  return "On The Way"
               }
             })()}</Text>
           </Text>

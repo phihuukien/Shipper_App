@@ -50,9 +50,10 @@
     "preset": "react-native"
   },
   "projectConfig": {
-    "backendApiBaseUrl": "http://192.168.1.23:7090/api",
+    "backendApiBaseUrl": "http://172.16.0.90:7090/api",
     "unbackendApiBaseUrl": "http://172.16.0.74:7090/api",
-    "backendApiBaseUrlImg": "http://192.168.1.23:7090/images",
+    "linkRealtime": "http://172.16.0.90:7090/chatHub",
+    "backendApiBaseUrlImg": "http://172.16.0.90:7090/images",
     "unbackendApiBaseUrlImg": "http://172.16.0.74:7090/images"
   }
 }

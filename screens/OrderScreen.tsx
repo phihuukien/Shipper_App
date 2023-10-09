@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+const config = require('../package.json').projectConfig;
 import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import OrderCard from '../components/OrderCard';
 import Separator from '../components/Separator ';
@@ -10,13 +11,16 @@ import { Fonts, Images } from '../contants';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 const OrderScreen = ({navigation}:any) => {
     const [ordersWaiting, setOrdersWaiting] = useState([]);
+    const linkRealtime = config.linkRealtime;
     useEffect(() => {
         const connection = new HubConnectionBuilder()
-        .withUrl('http://192.168.1.23:7090/chatHub')
+        .withUrl(linkRealtime)
         .build();
         connection.on('ReceiveMessageFromWeb', (message) => {
             console.log(message)
+            console.log("realtime đi")
             OrderService.getOrderWaiting().then((response: any) => {
+                console.log(response.data)
                 setOrdersWaiting(response.data);
             })
         });

@@ -70,8 +70,9 @@ import { ApiContants } from "../contants";
         };
       } else {
         return {
-          status: false,
+          status: true,
           message: response?.data?.Message,
+          data:  response?.data?.data,
         };
       }
     } catch (error) {
